@@ -1,0 +1,45 @@
+backend:
+  name: git-gateway
+  repo: acrestudio/acrestudio.art
+  branch: master
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "config"
+    label: "Config"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "Site Config"
+        file: "content/config.json"
+        description: "General site settings"
+        fields:
+          - label: "URL"
+            name: "base_url"
+            widget: "string"
+            hint: "Do not enter the trailing slash of the URL"
+          - label: "Site title"
+            name: "site_title"
+            widget: "string"
+          - label: "Featured Image"
+            name: "thumbnail"
+            widget: "image"
+            choose_url: "false"
+
+  - name: "items"
+    label: "Items"
+    folder: "content/items/"
+    extension: "md"
+    format: "frontmatter"
+    create: true
+    summary: "{{title}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"

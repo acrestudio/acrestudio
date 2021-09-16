@@ -1,0 +1,28 @@
+---
+slug: rich-content-with-mdx
+title: Rich Content with MDX
+---
+
+MDX supports to import React component and embed it directly as markdown content.
+
+## Instagram with react-instagram-embed
+
+<p>
+  <InstagramEmbed
+    url="https://instagr.am/p/Zw9o4/"
+    maxWidth={320}
+    hideCaption={true}
+  />
+</p>
+
+## YouTube with react-youtube
+
+<p>
+  <YouTube videoId={"2g811Eo7K8U"} containerClassName={"youtube-container"} />
+</p>
+
+## Twitter with react-twitter-embed
+
+<p>
+  <TwitterTweetEmbed tweetId={"933354946111705097"} />
+</p>
