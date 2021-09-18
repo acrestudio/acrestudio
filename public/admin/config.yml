@@ -38,6 +38,18 @@ collections:
                 search_fields: ['title']
                 value_field: '{{slug}}'
                 display_fields: ['title']
+
+  - name: 'categories'
+    label: 'Categories'
+    folder: 'content/categories/'
+    format: 'json'
+    create: true
+    summary: '{{name}}'
+    fields:
+      - label: 'Name'
+        name: 'name'
+        widget: 'string'
+
   - name: 'items'
     label: 'Items'
     folder: 'content/items/'
