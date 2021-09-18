@@ -65,6 +65,8 @@ collections:
 
   - name: 'items'
     label: 'Item'
+    editor:
+      preview: false
     folder: 'content/items/'
     extension: 'md'
     format: 'frontmatter'
@@ -88,3 +90,6 @@ collections:
         name: 'images'
         widget: 'image'
         allow_multiple: true
+      - label: "Text"
+        name: "body"
+        widget: "markdown"
