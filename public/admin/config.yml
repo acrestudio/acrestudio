@@ -27,6 +27,17 @@ collections:
             name: 'image'
             widget: 'image'
             choose_url: false
+          - label: 'Categories'
+            name: 'categories'
+            widget: 'list'
+            fields:
+              - label: 'Category Name'
+                name: 'category'
+                widget: 'relation'
+                collection: 'categories'
+                search_fields: ['title']
+                value_field: '{{slug}}'
+                display_fields: ['title']
           - label: 'Items'
             name: 'items'
             widget: 'list'
@@ -40,18 +51,20 @@ collections:
                 display_fields: ['title']
 
   - name: 'categories'
-    label: 'Categories'
+    label: 'Category'
+    editor:
+      preview: false
     folder: 'content/categories/'
     format: 'json'
     create: true
-    summary: '{{name}}'
+    summary: '{{title}}'
     fields:
       - label: 'Name'
-        name: 'name'
+        name: 'title'
         widget: 'string'
 
   - name: 'items'
-    label: 'Items'
+    label: 'Item'
     folder: 'content/items/'
     extension: 'md'
     format: 'frontmatter'

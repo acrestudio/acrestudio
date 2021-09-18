@@ -2,7 +2,7 @@
 title: Robbie
 image: /images/portrait-robbie.jpg
 description:
-category: Portrait
+category: portrait
 images:
   - /images/portrait-robbie.jpg
 ---

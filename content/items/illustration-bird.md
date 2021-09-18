@@ -2,7 +2,7 @@
 title: Bird
 image: /images/illustration-bird.jpg
 description:
-category: Illustration
+category: illustration
 images:
   - /images/illustration-bird.jpg
 ---

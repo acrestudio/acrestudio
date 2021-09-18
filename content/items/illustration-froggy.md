@@ -2,7 +2,7 @@
 title: Froggy
 image: /images/illustration-froggy.jpg
 description:
-category: Illustration
+category: illustration
 images:
   - /images/illustration-froggy.jpg
 ---

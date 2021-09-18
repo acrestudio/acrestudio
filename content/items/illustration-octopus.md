@@ -2,7 +2,7 @@
 title: Octopus
 image: /images/illustration-octopus.jpg
 description:
-category: Illustration
+category: illustration
 images:
   - /images/illustration-octopus.jpg
 ---

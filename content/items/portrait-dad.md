@@ -2,7 +2,7 @@
 title: Dad
 image: /images/portrait-dad.jpg
 description:
-category: Portrait
+category: portrait
 images:
   - /images/portrait-dad.jpg
 ---

@@ -2,7 +2,7 @@
 title: Faces
 image: /images/character-faces.jpg
 description:
-category: Character
+category: character
 images:
   - /images/character-faces.jpg
 ---

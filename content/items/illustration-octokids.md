@@ -2,7 +2,7 @@
 title: Octokids
 image: /images/illustration-octokids.jpg
 description:
-category: Illustration
+category: illustration
 images:
   - /images/illustration-octokids.jpg
 ---

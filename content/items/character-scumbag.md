@@ -2,7 +2,7 @@
 title: Scumbag
 image: /images/character-scumbag.jpg
 description:
-category: Character
+category: character
 images:
   - /images/character-scumbag.jpg
 ---
