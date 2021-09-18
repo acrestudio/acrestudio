@@ -4,7 +4,6 @@ import Layout from '../components/Layout';
 import Meta from '../components/Meta';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import Image from 'next/image';
 
 export default function ItemPage(item: Item) {
   return (
@@ -15,7 +14,7 @@ export default function ItemPage(item: Item) {
         <ReactMarkdown>{item.content}</ReactMarkdown>
         {item.images.map(image => (
           <div key={image.src} style={{ position: 'relative', width: '200px', backgroundColor: image.color }}>
-            <Image width={image.width} height={image.height} layout="responsive" src={image.src} alt="" />
+            <img width={image.width} height={image.height} src={image.src} alt="" />
           </div>
         ))}
       </article>
