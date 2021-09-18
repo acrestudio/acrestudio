@@ -1,5 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import md5File from 'md5-file';
 import path from 'path';
 import sharp from 'sharp';
 
@@ -27,15 +28,37 @@ type ItemFrontMatter = {
   images: string[];
 };
 
-const getImageInfo = async (src: string): Promise<ImageInfo | null> => {
-  //console.info(`Getting image info ${src}`);
-  const imagePath = path.join(process.cwd(), 'public', src);
+const fsExists = async (file: string) => fs.promises.stat(file).catch(_ => false);
+
+const getImage = async (src: string): Promise<ImageInfo | null> => {
+  console.info(`get image ${src}`);
+  const imageFile = path.join(process.cwd(), 'public', src);
   // check if file exists
-  if (!(await fs.promises.stat(imagePath).catch(_ => false))) {
+  if (!(await fsExists(imageFile))) {
     console.error(`Image does not exist: ${src}`);
     return null;
   }
-  const image = sharp(imagePath);
+  // prep paths
+  const hash = (await md5File(imageFile)).substring(0, 10);
+  const base = path.parse(src).base.replaceAll('.', '-');
+  const imageId = `${base}-${hash}`;
+  const imagesDir = path.join(process.cwd(), '.next', 'cache', 'images');
+  const imageDir = path.join(imagesDir, imageId);
+  const dataFile = path.join(imageDir, 'data.json');
+  // find data file
+  if (await fsExists(dataFile)) {
+    return JSON.parse(await fs.promises.readFile(dataFile, 'utf8'));
+  }
+  // create /.next/cache/images folder
+  if (!(await fsExists(imagesDir))) {
+    await fs.promises.mkdir(imagesDir);
+  }
+  // create /.next/cache/images/[name]-[hash] folder
+  if (!(await fsExists(imageDir))) {
+    await fs.promises.mkdir(imageDir);
+  }
+  // extract meta data
+  const image = sharp(imageFile);
   // get width and height
   const metadata = await image.metadata();
   const width = metadata.width ?? 0;
@@ -43,11 +66,14 @@ const getImageInfo = async (src: string): Promise<ImageInfo | null> => {
   // get dominant color
   const { dominant } = await image.stats();
   const color = `rgb(${dominant.r},${dominant.g},${dominant.b})`;
+  // write data file
+  const data = { src, width, height, color };
+  await fs.promises.writeFile(dataFile, JSON.stringify(data), { encoding: 'utf8' });
   return { src, width, height, color };
 };
 
-const fetchItem = async (fileName: string): Promise<Item> => {
-  //console.info(`Fetching item ${fileName}`);
+const getItem = async (fileName: string): Promise<Item> => {
+  console.info(`get item ${fileName}`);
   // read markdown file as string
   const fullPath = path.join(itemsDirectory, fileName);
   const fileContents = await fs.promises.readFile(fullPath, 'utf8');
@@ -58,7 +84,7 @@ const fetchItem = async (fileName: string): Promise<Item> => {
   // get image info
   const images: ImageInfo[] = [];
   for (const image of data.images) {
-    const info = await getImageInfo(image);
+    const info = await getImage(image);
     if (info !== null) {
       images.push(info);
     }
@@ -71,14 +97,14 @@ const fetchItem = async (fileName: string): Promise<Item> => {
   return { slug, ...data, images, previous, next, content };
 };
 
-export async function fetchItems2(): Promise<Item[]> {
-  console.info('-------------------------------------------');
+const getItems = async (): Promise<Item[]> => {
+  console.info(`get items`);
   // Get file names under /items
   const fileNames = await fs.promises.readdir(itemsDirectory);
   const mdFiles = fileNames.filter(it => it.endsWith('.md'));
   const items: Item[] = [];
   for (const mdFile of mdFiles) {
-    items.push(await fetchItem(mdFile));
+    items.push(await getItem(mdFile));
   }
   // add previous/next item infos
   items.forEach((item, i) => {
@@ -88,7 +114,7 @@ export async function fetchItems2(): Promise<Item[]> {
     item.next = { slug: next.slug, title: next.title };
   });
   return items;
-}
+};
 
 export async function fetchItems(): Promise<Item[]> {
   const cachePath = path.join(process.cwd(), '.next', 'cache', 'items.json');
@@ -102,7 +128,7 @@ export async function fetchItems(): Promise<Item[]> {
   }
   // save to cache
   const buildId = process.env.BUILD_ID;
-  const items = await fetchItems2();
+  const items = await getItems();
   await fs.promises.writeFile(cachePath, JSON.stringify({ buildId, items }), { encoding: 'utf8' });
   return items;
 }
