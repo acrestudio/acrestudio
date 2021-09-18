@@ -1,5 +1,13 @@
 {
   "title": "ACRE",
   "description": "Portfolio",
-  "image": "/images/sticker-mancat.jpg"
+  "image": "/images/sticker-mancat.jpg",
+  "items": [
+    {
+      "item": "character-cowgirl"
+    },
+    {
+      "item": "character-long-shirt-girl"
+    }
+  ]
 }
