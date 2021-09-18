@@ -9,8 +9,8 @@ export default function ItemList({ items }: { items: Item[] }) {
         <ul>
           {items.map((item, i) => (
             <li key={i}>
-              <Link href={'/items/' + item.data.slug}>
-                <a>{item.data.title}</a>
+              <Link href={'/' + item.slug}>
+                <a>{item.title}</a>
               </Link>
             </li>
           ))}

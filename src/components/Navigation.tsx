@@ -8,11 +8,6 @@ export default function Navigation() {
           <a>about</a>
         </Link>
       </li>
-      <li>
-        <Link href="/items">
-          <a>blog</a>
-        </Link>
-      </li>
     </ul>
   );
 }

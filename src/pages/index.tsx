@@ -1,13 +1,20 @@
 import Layout from '../components/Layout';
 import Meta from '../components/Meta';
-import Image from 'next/image';
+import { GetStaticProps } from 'next';
+import { fetchItems, Item } from '../lib/items';
+import ItemList from '../components/ItemList';
 
-export default function IndexPage() {
+export default function IndexPage({ items }: { items: Item[] }) {
   return (
     <Layout>
       <Meta />
       <h1>Hi!</h1>
-      <Image src="/images/sticker-mancat.png" alt="Picture of the author" />
+      <ItemList items={items} />
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const items = await fetchItems();
+  return { props: { items } };
+};
