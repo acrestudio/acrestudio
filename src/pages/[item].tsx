@@ -12,13 +12,13 @@ export default function ItemPage(item: Item) {
       <article>
         <small>{item.category}</small>
         <ReactMarkdown>{item.content}</ReactMarkdown>
-        {item.images.map(image => (
-          <div key={image.src} style={{ position: 'relative', width: '200px', backgroundColor: image.color }}>
-            <div style={{ paddingTop: (image.height * 100) / image.width + '%' }} />
+        {item.images.map(({ image, thumb }) => (
+          <div key={thumb.src} style={{ position: 'relative', width: '200px', backgroundColor: image.color }}>
+            <div style={{ paddingTop: (thumb.height * 100) / thumb.width + '%' }} />
             <img
-              width={image.width}
-              height={image.height}
-              src={image.src}
+              width={thumb.width}
+              height={thumb.height}
+              src={thumb.src}
               alt=""
               style={{ position: 'absolute', width: '100%', height: '100%', inset: 0 }}
             />

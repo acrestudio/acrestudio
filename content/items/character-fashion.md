@@ -1,5 +1,5 @@
 ---
-title: Fashionn
+title: Fashion
 image: /images/character-fashion.jpg
 description:
 category: Character
