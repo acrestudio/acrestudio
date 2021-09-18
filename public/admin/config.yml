@@ -1,73 +1,65 @@
 backend:
-  name: git-gateway
-  repo: acrestudio/acrestudio.art
-  branch: master
-media_folder: public/images
-public_folder: /images
+  name: 'git-gateway'
+  repo: 'acrestudio/acrestudio.art'
+  branch: 'master'
+media_folder: 'public/images'
+public_folder: '/images'
 
 collections:
-  - name: home
-    label: Home
+  - name: 'home'
+    label: 'Home'
     delete: false
     editor:
       preview: false
     files:
-      - name: general
-        label: Home
-        file: content/home.json
-        description: General site settings
+      - name: 'general'
+        label: 'Home'
+        file: 'content/home.json'
+        description: 'General site settings'
         fields:
-          - label: Page title
-            name: title
-            widget: string
-          - label: Meta description
-            name: description
-            widget: string
-          - label: Meta image
-            name: image
-            widget: image
+          - label: 'Page title'
+            name: 'title'
+            widget: 'string'
+          - label: 'Meta description'
+            name: 'description'
+            widget: 'string'
+          - label: 'Meta image'
+            name: 'image'
+            widget: 'image'
             choose_url: false
-
-  - name: settings
-    label: Settings
-    files:
-      - name: order
-        label: Items Order
-        file: content/order.json
-        fields:
-          - label: Collection
-            name: collection
-            widget: list
+          - label: 'Items'
+            name: 'items'
+            widget: 'list'
             fields:
-              - label: Collection Name
-                name: collectionName
-                widget: relation
-                collection: items
-                searchFields: [title]
-                valueField: title
-
-  - name: items
-    label: Items
-    folder: content/items/
-    extension: md
-    format: frontmatter
+              - label: 'Item Title'
+                name: 'item'
+                widget: 'relation'
+                collection: 'items'
+                search_fields: ['title']
+                value_field: '{{slug}}'
+                display_fields: ['title']
+  - name: 'items'
+    label: 'Items'
+    folder: 'content/items/'
+    extension: 'md'
+    format: 'frontmatter'
     create: true
     summary: '{{title}}'
     fields:
-      - label: Title
-        name: title
-        widget: string
-      - label: Meta description
-        name: description
-        widget: string
-      - label: Meta image
-        name: image
-        widget: image
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Meta description'
+        name: 'description'
+        widget: 'string'
+      - label: 'Meta image'
+        name: 'image'
+        widget: 'image'
         choose_url: false
-      - label: Category
-        name: category
-        widget: string
-      - label: Gallery
-        name: images
-        widget: image
+      - label: 'Category'
+        name: 'category'
+        widget: 'string'
+      - label: 'Gallery'
+        name: 'images'
+        widget: 'image'
         allow_multiple: true
