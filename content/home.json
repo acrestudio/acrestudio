@@ -1,103 +1,103 @@
 {
   "title": "ACRE",
   "description": "Portfolio",
-  "image": "/images/sticker-mancat.jpg",
+  "image": "/images/mancat.jpg",
   "items": [
     {
-      "item": "character-cowgirl"
+      "item": "cowgirl"
     },
     {
-      "item": "character-faces"
+      "item": "faces"
     },
     {
-      "item": "character-fashion"
+      "item": "fashion"
     },
     {
-      "item": "character-long-shirt-girl"
+      "item": "long-shirt-girl"
     },
     {
-      "item": "character-old-man"
+      "item": "old-man"
     },
     {
-      "item": "character-scumbag"
+      "item": "scumbag"
     },
     {
-      "item": "illustration-bird"
+      "item": "bird"
     },
     {
-      "item": "illustration-froggy"
+      "item": "froggy"
     },
     {
-      "item": "illustration-mad-science"
+      "item": "mad-science"
     },
     {
-      "item": "illustration-nee"
+      "item": "nee"
     },
     {
-      "item": "illustration-octokids"
+      "item": "octokids"
     },
     {
-      "item": "illustration-octopus"
+      "item": "octopus"
     },
     {
-      "item": "illustration-saloon"
+      "item": "saloon"
     },
     {
-      "item": "portrait-dad"
+      "item": "dad"
     },
     {
-      "item": "portrait-logan"
+      "item": "logan"
     },
     {
-      "item": "portrait-robbie"
+      "item": "robbie"
     },
     {
-      "item": "portrait-zamisco"
+      "item": "zamisco"
     },
     {
-      "item": "sticker-benlong"
+      "item": "benlong"
     },
     {
-      "item": "sticker-cyclops"
+      "item": "cyclops"
     },
     {
-      "item": "sticker-detective"
+      "item": "detective"
     },
     {
-      "item": "sticker-isitacat"
+      "item": "isitacat"
     },
     {
-      "item": "sticker-mancat"
+      "item": "mancat"
     },
     {
-      "item": "sticker-mosquitoeee"
+      "item": "mosquitoeee"
     },
     {
-      "item": "sticker-oatmeal"
+      "item": "oatmeal"
     },
     {
-      "item": "sticker-plant"
+      "item": "plant"
     },
     {
-      "item": "sticker-safety"
+      "item": "safety"
     },
     {
-      "item": "sticker-skullbird"
+      "item": "skullbird"
     },
     {
-      "item": "sticker-sternbald"
+      "item": "sternbald"
     },
     {
-      "item": "sticker-taiwan-octo"
+      "item": "taiwan-octo"
     },
     {
-      "item": "sticker-tea-leaves"
+      "item": "tea-leaves"
     },
     {
-      "item": "sticker-weird-lamp"
+      "item": "weird-lamp"
     },
     {
-      "item": "sticker-zomg"
+      "item": "zomg"
     }
   ]
 }

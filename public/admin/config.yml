@@ -59,6 +59,11 @@ collections:
     create: true
     summary: '{{title}}'
     fields:
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+        hint: 'The part of the URL that explains the page’s content. Can’t be changed once set.'
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$','A slug can have no spaces or special characters']
       - label: 'Name'
         name: 'title'
         widget: 'string'
@@ -71,8 +76,13 @@ collections:
     extension: 'md'
     format: 'frontmatter'
     create: true
-    summary: '{{title}}'
+    summary: '{{title}} ({{category.title}}'
     fields:
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+        hint: 'The part of the URL that explains the page’s content. Can’t be changed once set.'
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$','A slug can have no spaces or special characters']
       - label: 'Title'
         name: 'title'
         widget: 'string'
