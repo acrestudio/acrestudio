@@ -3,38 +3,101 @@
   "description": "Portfolio",
   "image": "/images/sticker-mancat.jpg",
   "items": [
-    { "item": "test" },
-    { "item": "character-cowgirl" },
-    { "item": "character-faces" },
-    { "item": "character-fashion" },
-    { "item": "character-long-shirt-girl" },
-    { "item": "character-old-man" },
-    { "item": "character-scumbag" },
-    { "item": "illustration-bird" },
-    { "item": "illustration-froggy" },
-    { "item": "illustration-mad-science" },
-    { "item": "illustration-nee" },
-    { "item": "illustration-octokids" },
-    { "item": "illustration-octopus" },
-    { "item": "illustration-saloon" },
-    { "item": "portrait-dad" },
-    { "item": "portrait-logan" },
-    { "item": "portrait-robbie" },
-    { "item": "portrait-zamisco" },
-    { "item": "sticker-benlong" },
-    { "item": "sticker-cyclops" },
-    { "item": "sticker-detective" },
-    { "item": "sticker-isitacat" },
-    { "item": "sticker-mancat" },
-    { "item": "sticker-mosquitoeee" },
-    { "item": "sticker-oatmeal" },
-    { "item": "sticker-plant" },
-    { "item": "sticker-safety" },
-    { "item": "sticker-skullbird" },
-    { "item": "sticker-sternbald" },
-    { "item": "sticker-taiwan-octo" },
-    { "item": "sticker-tea-leaves" },
-    { "item": "sticker-weird-lamp" },
-    { "item": "sticker-zomg" }
+    {
+      "item": "character-cowgirl"
+    },
+    {
+      "item": "character-faces"
+    },
+    {
+      "item": "character-fashion"
+    },
+    {
+      "item": "character-long-shirt-girl"
+    },
+    {
+      "item": "character-old-man"
+    },
+    {
+      "item": "character-scumbag"
+    },
+    {
+      "item": "illustration-bird"
+    },
+    {
+      "item": "illustration-froggy"
+    },
+    {
+      "item": "illustration-mad-science"
+    },
+    {
+      "item": "illustration-nee"
+    },
+    {
+      "item": "illustration-octokids"
+    },
+    {
+      "item": "illustration-octopus"
+    },
+    {
+      "item": "illustration-saloon"
+    },
+    {
+      "item": "portrait-dad"
+    },
+    {
+      "item": "portrait-logan"
+    },
+    {
+      "item": "portrait-robbie"
+    },
+    {
+      "item": "portrait-zamisco"
+    },
+    {
+      "item": "sticker-benlong"
+    },
+    {
+      "item": "sticker-cyclops"
+    },
+    {
+      "item": "sticker-detective"
+    },
+    {
+      "item": "sticker-isitacat"
+    },
+    {
+      "item": "sticker-mancat"
+    },
+    {
+      "item": "sticker-mosquitoeee"
+    },
+    {
+      "item": "sticker-oatmeal"
+    },
+    {
+      "item": "sticker-plant"
+    },
+    {
+      "item": "sticker-safety"
+    },
+    {
+      "item": "sticker-skullbird"
+    },
+    {
+      "item": "sticker-sternbald"
+    },
+    {
+      "item": "sticker-taiwan-octo"
+    },
+    {
+      "item": "sticker-tea-leaves"
+    },
+    {
+      "item": "sticker-weird-lamp"
+    },
+    {
+      "item": "sticker-zomg"
+    }
   ]
 }
