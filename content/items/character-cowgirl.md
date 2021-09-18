@@ -1,5 +1,5 @@
 ---
-title: 你好
+title: Cowgirl
 description: null
 image: /images/character-cowgirl.jpg
 category: character
