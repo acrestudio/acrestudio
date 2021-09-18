@@ -52,7 +52,7 @@ collections:
     extension: md
     format: frontmatter
     create: true
-    summary: {{ title }}
+    summary: '{{title}}'
     fields:
       - label: Title
         name: title
