@@ -33,6 +33,10 @@ const staticDir = path.join(process.cwd(), '.next', 'static', 'images');
 
 const fsExists = async (file: string) => fs.promises.stat(file).catch(_ => false);
 
+/**
+ * Returns image meta data for images in public folder
+ * Image info is cached in /.next/cache/images/[file-hash]/data.json
+ */
 export const getImage = async (src: string): Promise<Image | null> => {
   console.info(`get image ${src}`);
   const imageFile = path.join(publicDir, src);
@@ -74,6 +78,11 @@ export const getImage = async (src: string): Promise<Image | null> => {
   return data;
 };
 
+/**
+ * Resizes image and returns thumb data
+ * Thumbs are created in /.next/cache/images and copied to /.next/static/images/ folder.
+ * Next.js copies static folder on export.
+ */
 export const resizeImage = async (image: Image, options: ResizeOptions[]): Promise<Thumb[]> => {
   const imageFile = path.join(publicDir, image.src);
   const thumbs: Thumb[] = [];

@@ -29,22 +29,22 @@ collections:
             choose_url: false
 
   - name: settings
-      label: Settings
-      files:
-        - name: order
-          label: Items Order
-          file: content/order.json
-          fields:
-            - label: Collection
-              name: collection
-              widget: list
-              fields:
-                - label: Collection Name
-                  name: collectionName
-                  widget: relation
-                  collection: items
-                  searchFields: [title]
-                  valueField: title
+    label: Settings
+    files:
+      - name: order
+        label: Items Order
+        file: content/order.json
+        fields:
+          - label: Collection
+            name: collection
+            widget: list
+            fields:
+              - label: Collection Name
+                name: collectionName
+                widget: relation
+                collection: items
+                searchFields: [title]
+                valueField: title
 
   - name: items
     label: Items
@@ -52,7 +52,7 @@ collections:
     extension: md
     format: frontmatter
     create: true
-    summary: {{title}}
+    summary: { { title } }
     fields:
       - label: Title
         name: title
