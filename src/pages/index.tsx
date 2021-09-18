@@ -8,7 +8,7 @@ export default function IndexPage({ items }: { items: Item[] }) {
   return (
     <Layout>
       <Meta />
-      <h1>Hi!</h1>
+      <h1>Hi!!</h1>
       <ItemList items={items} />
     </Layout>
   );
