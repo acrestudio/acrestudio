@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 import path from 'path';
 import { getImage, Image, resizeImage, Thumb } from './image';
 
-const itemsDirectory = path.join(process.cwd(), 'content/items');
+const itemsDir = path.join(process.cwd(), 'content/items');
 
 export type Item = {
   slug: string;
@@ -18,6 +18,7 @@ export type Item = {
 };
 
 type ItemFrontMatter = {
+  slug: string;
   title: string;
   image: string;
   description: string;
@@ -28,7 +29,7 @@ type ItemFrontMatter = {
 const getItem = async (fileName: string): Promise<Item> => {
   console.info(`get item ${fileName}`);
   // read markdown file as string
-  const fullPath = path.join(itemsDirectory, fileName);
+  const fullPath = path.join(itemsDir, fileName);
   const fileContents = await fs.promises.readFile(fullPath, 'utf8');
   // use gray-matter to parse the item metadata section
   const frontMatter = matter(fileContents);
@@ -46,18 +47,18 @@ const getItem = async (fileName: string): Promise<Item> => {
     const thumbs = await resizeImage(image, [{ width, height }]);
     images.push({ image, thumb: thumbs[0] });
   }
-  // get slug
-  const slug = fileName.replace(/\.md$/, '');
+  // get original slug
+  data.slug = fileName.replace(/\.md$/, '');
   // previous/next dummy
   const previous = { slug: '', title: '' };
   const next = { slug: '', title: '' };
-  return { slug, ...data, images, previous, next, content };
+  return { ...data, images, previous, next, content };
 };
 
 const getItems = async (): Promise<Item[]> => {
   console.info(`get items`);
   // Get file names under /items
-  const fileNames = await fs.promises.readdir(itemsDirectory);
+  const fileNames = await fs.promises.readdir(itemsDir);
   const mdFiles = fileNames.filter(it => it.endsWith('.md'));
   const items: Item[] = [];
   for (const mdFile of mdFiles) {
@@ -73,7 +74,7 @@ const getItems = async (): Promise<Item[]> => {
   return items;
 };
 
-export async function fetchItems(): Promise<Item[]> {
+export const fetchItems = async (): Promise<Item[]> => {
   const cachePath = path.join(process.cwd(), '.next', 'cache', 'items.json');
   // load from cache
   if (await fs.promises.stat(cachePath).catch(_ => false)) {
@@ -88,4 +89,4 @@ export async function fetchItems(): Promise<Item[]> {
   const items = await getItems();
   await fs.promises.writeFile(cachePath, JSON.stringify({ buildId, items }), { encoding: 'utf8' });
   return items;
-}
+};

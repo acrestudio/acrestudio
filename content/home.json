@@ -99,5 +99,19 @@
     {
       "item": "zomg"
     }
+  ],
+  "categories": [
+    {
+      "category": "character"
+    },
+    {
+      "category": "illustration"
+    },
+    {
+      "category": "portrait"
+    },
+    {
+      "category": "sticker"
+    }
   ]
 }
