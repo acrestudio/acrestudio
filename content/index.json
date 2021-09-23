@@ -1,0 +1,117 @@
+{
+  "title": "ACRE",
+  "description": "Portfolio",
+  "image": "/images/mancat.jpg",
+  "works": [
+    {
+      "work": "cowgirl"
+    },
+    {
+      "work": "faces"
+    },
+    {
+      "work": "fashion"
+    },
+    {
+      "work": "long-shirt-girl"
+    },
+    {
+      "work": "old-man"
+    },
+    {
+      "work": "scumbag"
+    },
+    {
+      "work": "bird"
+    },
+    {
+      "work": "froggy"
+    },
+    {
+      "work": "mad-science"
+    },
+    {
+      "work": "nee"
+    },
+    {
+      "work": "octokids"
+    },
+    {
+      "work": "octopus"
+    },
+    {
+      "work": "saloon"
+    },
+    {
+      "work": "dad"
+    },
+    {
+      "work": "logan"
+    },
+    {
+      "work": "robbie"
+    },
+    {
+      "work": "zamisco"
+    },
+    {
+      "work": "benlong"
+    },
+    {
+      "work": "cyclops"
+    },
+    {
+      "work": "detective"
+    },
+    {
+      "work": "isitacat"
+    },
+    {
+      "work": "mancat"
+    },
+    {
+      "work": "mosquitoeee"
+    },
+    {
+      "work": "oatmeal"
+    },
+    {
+      "work": "plant"
+    },
+    {
+      "work": "safety"
+    },
+    {
+      "work": "skullbird"
+    },
+    {
+      "work": "sternbald"
+    },
+    {
+      "work": "taiwan-octo"
+    },
+    {
+      "work": "tea-leaves"
+    },
+    {
+      "work": "weird-lamp"
+    },
+    {
+      "work": "zomg"
+    }
+  ],
+  "tags": [
+    {
+      "tag": "character"
+    },
+    {
+      "tag": "illustration"
+    },
+    {
+      "tag": "portrait"
+    },
+    {
+      "tag": "sticker"
+    }
+  ]
+}

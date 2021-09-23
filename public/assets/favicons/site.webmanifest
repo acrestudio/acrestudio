@@ -1,0 +1,38 @@
+{
+    "name": "ACRE",
+    "short_name": "ACRE",
+    "theme_color": "#161c2d",
+    "background_color": "#ffffff",
+	"icons": [
+		{
+			"src": "/assets/favicons/icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/assets/favicons/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/assets/favicons/icon.svg",
+			"sizes": "1024x1024 512x512 384x384 192x192 180x180 152x152",
+			"type": "image/svg+xml",
+			"purpose": "any"
+		},
+		{
+			"src": "/assets/favicons/icon-maskable.svg",
+			"sizes": "1024x1024 512x512 384x384 192x192 180x180 152x152",
+			"type": "image/svg+xml",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/assets/favicons/icon-monochrome.svg",
+			"sizes": "1024x1024 512x512 384x384 192x192 180x180 152x152",
+			"type": "image/svg+xml",
+			"purpose": "monochrome"
+		}
+	]
+}

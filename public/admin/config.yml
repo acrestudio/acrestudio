@@ -14,8 +14,8 @@ collections:
     files:
       - name: 'general'
         label: 'Home'
-        file: 'content/home.json'
-        description: 'General site settings'
+        file: 'content/index.json'
+        description: 'Home'
         fields:
           - label: 'Page title'
             name: 'title'
@@ -27,14 +27,14 @@ collections:
             name: 'image'
             widget: 'image'
             choose_url: false
-          - label: 'Categories'
-            name: 'categories'
+          - label: 'Tags'
+            name: 'tags'
             widget: 'list'
             fields:
-              - label: 'Category Name'
-                name: 'category'
+              - label: 'Tag Name'
+                name: 'tag'
                 widget: 'relation'
-                collection: 'categories'
+                collection: 'tags'
                 search_fields: ['title']
                 value_field: '{{slug}}'
                 display_fields: ['title']
@@ -50,14 +50,13 @@ collections:
                 value_field: '{{slug}}'
                 display_fields: ['title']
 
-  - name: 'categories'
-    label: 'Category'
+  - name: 'tags'
+    label: 'Tag'
     editor:
       preview: false
-    folder: 'content/categories/'
+    folder: 'content/tags/'
     format: 'json'
     create: true
-    summary: '{{title}}'
     fields:
       - label: 'Slug'
         name: 'slug'
@@ -72,11 +71,10 @@ collections:
     label: 'Item'
     editor:
       preview: false
-    folder: 'content/items/'
+    folder: 'content/works/'
     extension: 'md'
     format: 'frontmatter'
     create: true
-    summary: '{{title}} ({{category.title}}'
     fields:
       - label: 'Slug'
         name: 'slug'
@@ -90,18 +88,21 @@ collections:
         name: 'description'
         widget: 'string'
         required: false
-      - label: 'Meta image'
+      - label: 'Image'
         name: 'image'
         widget: 'image'
         choose_url: false
-      - label: 'Category'
-        name: 'category'
-        widget: 'relation'
-        required: false
-        collection: 'categories'
-        search_fields: ['title']
-        value_field: '{{slug}}'
-        display_fields: ['title']
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        fields:
+          - label: 'Tag'
+            name: 'tag'
+            widget: 'relation'
+            collection: 'tags'
+            search_fields: ['title']
+            value_field: '{{slug}}'
+            display_fields: ['title']
       - label: 'Gallery'
         name: 'images'
         widget: 'image'
