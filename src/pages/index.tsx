@@ -42,7 +42,9 @@ export default function IndexPage({ title, description, image, tags, works }: In
           <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold tracking-tighter">
             I design digital crafts for clients.
           </h1>
-          <button className="rounded-full tracking-widest font-bold px-8 py-5 text-white bg-blue-300 uppercase inline-flex items-center mt-12 text-xs hover:bg-white hover:text-blue-300 transition-colors">
+          <button
+            className="rounded-full tracking-widest font-bold px-8 py-5 text-white bg-blue-300 uppercase inline-flex items-center mt-12 text-xs hover:bg-white hover:text-blue-300 transition-colors"
+            onClick={() => document.querySelector('#tags')?.scrollIntoView({ behavior: 'smooth' })}>
             Explore Works
             <Arrow className="h-6 w-6 ml-5" />
           </button>
@@ -52,7 +54,7 @@ export default function IndexPage({ title, description, image, tags, works }: In
         </div>
       </div>
 
-      <ul className="max-w-6xl mx-auto flex flex-wrap px-2 pb-8">
+      <ul className="max-w-6xl mx-auto flex flex-wrap px-2 pb-8" id="tags">
         {filter.map((tag, i) => (
           <li key={i} className="py-2 pr-4 md:pr-8 lg:pr-16">
             <button

@@ -103,6 +103,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async context => {
   const { work: id } = context.params as { work: string };
   const work = (await getWorkFromCache(id))!;
+  const index = await getIndexFromCache();
+  // title
+  const title = work.title + ' – acre · Jesse Hickey';
   // thumbs
   const image = !work.image ? '' : (await resizeImage({ image: work.image, width: 200 })).url;
   const images: (Image & { picture: Picture })[] = [];
@@ -110,11 +113,11 @@ export const getStaticProps: GetStaticProps = async context => {
     images.push({ ...img, picture: await getPicture(img, [{ width: 200 }]) });
   }
   // previous / next
-  const { works: listedWorks } = await getIndexFromCache();
+  const listedWorks = index.works;
   const i = listedWorks.findIndex(({ id }) => work.id === id);
   const previous = i === -1 ? null : listedWorks[(i - 1 + listedWorks.length) % listedWorks.length];
   const next = i === -1 ? null : listedWorks[(i + 1) % listedWorks.length];
   // return props
-  const props: WorkProps = { ...work, image, images, previous, next };
+  const props: WorkProps = { ...work, title, image, images, previous, next };
   return { props };
 };
