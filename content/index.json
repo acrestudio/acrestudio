@@ -3,102 +3,38 @@
   "description": "Portfolio",
   "image": "/images/mancat.jpg",
   "works": [
-    {
-      "work": "cowgirl"
-    },
-    {
-      "work": "faces"
-    },
-    {
-      "work": "fashion"
-    },
-    {
-      "work": "long-shirt-girl"
-    },
-    {
-      "work": "old-man"
-    },
-    {
-      "work": "scumbag"
-    },
-    {
-      "work": "bird"
-    },
-    {
-      "work": "froggy"
-    },
-    {
-      "work": "mad-science"
-    },
-    {
-      "work": "nee"
-    },
-    {
-      "work": "octokids"
-    },
-    {
-      "work": "octopus"
-    },
-    {
-      "work": "saloon"
-    },
-    {
-      "work": "dad"
-    },
-    {
-      "work": "logan"
-    },
-    {
-      "work": "robbie"
-    },
-    {
-      "work": "zamisco"
-    },
-    {
-      "work": "benlong"
-    },
-    {
-      "work": "cyclops"
-    },
-    {
-      "work": "detective"
-    },
-    {
-      "work": "isitacat"
-    },
-    {
-      "work": "mancat"
-    },
-    {
-      "work": "mosquitoeee"
-    },
-    {
-      "work": "oatmeal"
-    },
-    {
-      "work": "plant"
-    },
-    {
-      "work": "safety"
-    },
-    {
-      "work": "skullbird"
-    },
-    {
-      "work": "sternbald"
-    },
-    {
-      "work": "taiwan-octo"
-    },
-    {
-      "work": "tea-leaves"
-    },
-    {
-      "work": "weird-lamp"
-    },
-    {
-      "work": "zomg"
-    }
+    { "work": "saloon" },
+    { "work": "dad" },
+    { "work": "safety" },
+    { "work": "scumbag" },
+    { "work": "froggy" },
+    { "work": "zomg" },
+    { "work": "old-man" },
+    { "work": "skullbird" },
+    { "work": "mad-science" },
+    { "work": "sternbald" },
+    { "work": "logan" },
+    { "work": "octopus" },
+    { "work": "long-shirt-girl" },
+    { "work": "zamisco" },
+    { "work": "detective" },
+    { "work": "weird-lamp" },
+    { "work": "faces" },
+    { "work": "nee" },
+    { "work": "isitacat" },
+    { "work": "mancat" },
+    { "work": "bird" },
+    { "work": "octokids" },
+    { "work": "oatmeal" },
+    { "work": "fashion" },
+    { "work": "benlong" },
+    { "work": "plant" },
+    { "work": "cyclops" },
+    { "work": "tea-leaves" },
+    { "work": "mosquitoeee" },
+    { "work": "taiwan-octo" },
+    { "work": "cowgirl" },
+    { "work": "robbie" }
   ],
   "tags": [
     {
