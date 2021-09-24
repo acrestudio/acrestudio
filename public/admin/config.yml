@@ -39,13 +39,13 @@ collections:
                 value_field: '{{slug}}'
                 display_fields: ['title']
           - label: 'Items'
-            name: 'items'
+            name: 'works'
             widget: 'list'
             fields:
-              - label: 'Item Title'
-                name: 'item'
+              - label: 'Work Title'
+                name: 'work'
                 widget: 'relation'
-                collection: 'items'
+                collection: 'works'
                 search_fields: ['title']
                 value_field: '{{slug}}'
                 display_fields: ['title']
@@ -67,8 +67,8 @@ collections:
         name: 'title'
         widget: 'string'
 
-  - name: 'items'
-    label: 'Item'
+  - name: 'works'
+    label: 'Work'
     editor:
       preview: false
     folder: 'content/works/'
