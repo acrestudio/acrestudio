@@ -52,10 +52,10 @@ type RawWork = {
   data: {
     slug: string;
     title: string;
-    description: string;
+    description?: string;
     image: string;
-    tags: { tag: string }[];
-    images: string[];
+    tags?: { tag: string }[];
+    images?: string[];
   };
   content: string;
 };
@@ -74,11 +74,12 @@ const _getWork = async (id: string): Promise<Work | null> => {
   const file = path.join(process.cwd(), 'content', 'works', id + '.md');
   if (!(await fsExists(file))) return null;
   const { data, content: text } = matter(await fs.promises.readFile(file, { encoding: 'utf-8' })) as unknown as RawWork;
-  const { title, description } = data;
+  const title = data.title;
+  const description = data.description ?? '';
   const image = await getImage(data.image);
-  const tagIds = data.tags.map(x => x.tag);
+  const tagIds = data.tags?.map(x => x.tag) ?? [];
   const tags = await asyncGetExisting(getTag, tagIds);
-  const images = await asyncGetExisting(getImage, data.images);
+  const images = await asyncGetExisting(getImage, data.images ?? []);
   return { id, title, description, image, tags, text, images };
 };
 
