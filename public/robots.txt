@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /panel/login
+Sitemap: https://get-academy.com/sitemap.xml

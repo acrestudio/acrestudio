@@ -12,7 +12,7 @@ const Nav = () => (
       </a>
     </Link>
     <Link href="https://www.instagram.com/acre.sketches/">
-      <a className="p-2" target="_blank" rel="noreferrer">
+      <a className="p-2" target="_blank" rel="noreferrer" title="Instagram">
         <svg className="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <path
             fill="#fff"

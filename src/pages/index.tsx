@@ -59,7 +59,7 @@ export default function IndexPage({ title, description, image, tags, works }: In
               srcSet="/assets/images/jesse-1x.jpg 1x, /assets/images/jesse-1.5x.jpg 1.5x, /assets/images/jesse-2x.jpg 2x"
               type="image/jpeg"
             />
-            <img className="w-full" src="/assets/images/jesse-2x.jpg" alt="" />
+            <img className="w-full" src="/assets/images/jesse-2x.jpg" alt="" width="864" height="929" />
           </picture>
         </div>
       </div>
