@@ -50,7 +50,17 @@ export default function IndexPage({ title, description, image, tags, works }: In
           </button>
         </div>
         <div className="md:w-5/12 px-2 max-w-md py-6">
-          <img className="w-full" src="/assets/images/jesse.png" alt="" />
+          <picture>
+            <source
+              srcSet="/assets/images/jesse-1x.avif 1x, /assets/images/jesse-1.5x.avif 1.5x, /assets/images/jesse-2x.avif 2x"
+              type="image/avif"
+            />
+            <source
+              srcSet="/assets/images/jesse-1x.jpg 1x, /assets/images/jesse-1.5x.jpg 1.5x, /assets/images/jesse-2x.jpg 2x"
+              type="image/jpeg"
+            />
+            <img className="w-full" src="/assets/images/jesse-2x.jpg" alt="" />
+          </picture>
         </div>
       </div>
 
@@ -77,7 +87,11 @@ export default function IndexPage({ title, description, image, tags, works }: In
                   <div style={{ paddingTop: (work.image.height * 100) / work.image.width + '%' }} />
                   <picture>
                     {work.picture.sources.map((source, i) => (
-                      <source key={i} {...source} />
+                      <source
+                        key={i}
+                        {...source}
+                        sizes="(min-width: 72rem): calc(24rem - 2rem), (min-width: 1024px): calc(33% - 2rem), (min-width: 640px) calc(50% - 2rem), calc(100vw - 2rem)"
+                      />
                     ))}
                     <img className="absolute w-full h-full inset-0" {...work.picture.img} alt="" />
                   </picture>
