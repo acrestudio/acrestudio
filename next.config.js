@@ -2,7 +2,7 @@ const { nanoid } = require('nanoid');
 
 module.exports = {
   experimental: {
-    staticPageGenerationTimeout: 60 * 30,
+    staticPageGenerationTimeout: 60 * 10,
   },
   generateBuildId: async () => {
     const id = nanoid();
