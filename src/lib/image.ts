@@ -169,7 +169,8 @@ export const getPicture = async (image: Image, dimensions: { width: number; heig
   for (let { width, height } of dimensions) {
     height = height ? height : Math.round((image.height * width) / image.width);
     sources.jpeg.push(await resizeImage({ image, width, height, format: 'jpg' }));
-    sources.avif.push(await resizeImage({ image, width, height, format: 'avif' }));
+    // this brings netlify to its knees
+    //sources.avif.push(await resizeImage({ image, width, height, format: 'avif' }));
   }
   const img = sources.jpeg[sources.jpeg.length - 1];
   const { width: imgWidth, height: imgHeight } = dimensions[dimensions.length - 1];
