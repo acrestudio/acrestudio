@@ -4,7 +4,7 @@ import fs from 'fs';
 import sharp from 'sharp';
 import uniq from 'lodash/uniq';
 
-const thumbFormats = ['jpg', 'avif'] as const;
+const thumbFormats = ['jpg', 'webp', 'avif'] as const;
 export type ThumbFormat = typeof thumbFormats[number];
 
 export type Image = {
@@ -165,18 +165,20 @@ export const resizeImage = async ({
  * Helper for creating picture element thumbs in jpg and avif formats
  */
 export const getPicture = async (image: Image, dimensions: { width: number; height?: number }[]): Promise<Picture> => {
-  const sources: { avif: Thumb[]; jpeg: Thumb[] } = { avif: [], jpeg: [] };
+  const sources: { avif: Thumb[]; webp: Thumb[]; jpeg: Thumb[] } = { avif: [], webp: [], jpeg: [] };
   for (let { width, height } of dimensions) {
     height = height ? height : Math.round((image.height * width) / image.width);
     sources.jpeg.push(await resizeImage({ image, width, height, format: 'jpg' }));
     // this brings netlify to its knees
     //sources.avif.push(await resizeImage({ image, width, height, format: 'avif' }));
+    sources.webp.push(await resizeImage({ image, width, height, format: 'webp' }));
   }
   const img = sources.jpeg[sources.jpeg.length - 1];
   const { width: imgWidth, height: imgHeight } = dimensions[dimensions.length - 1];
   return {
     sources: [
-      { srcSet: uniq(sources.avif.map(({ url, width }) => `${url} ${width}w`)).join(', '), type: 'image/avif' },
+      //{ srcSet: uniq(sources.avif.map(({ url, width }) => `${url} ${width}w`)).join(', '), type: 'image/avif' },
+      { srcSet: uniq(sources.webp.map(({ url, width }) => `${url} ${width}w`)).join(', '), type: 'image/webp' },
       { srcSet: uniq(sources.jpeg.map(({ url, width }) => `${url} ${width}w`)).join(', '), type: 'image/jpeg' },
     ],
     img: {
