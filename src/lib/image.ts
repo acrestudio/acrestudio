@@ -73,12 +73,24 @@ export const getImage = async (url: string): Promise<Image | null> => {
   return data;
 };
 
+let pending: Promise<any> = Promise.resolve();
+
+async function runTask<T>(task: () => Promise<T>): Promise<T> {
+  await pending;
+  return task();
+}
+
+function addTask<T>(task: () => Promise<T>): Promise<T> {
+  pending = runTask(task);
+  return pending;
+}
+
 /**
  * Resizes image and returns thumb data
  * Thumbs are created in /.next/cache/images and copied to /.next/static/images/ folder.
  * Next.js copies static folder on export.
  */
-export const resizeImage = async ({
+export const _resizeImage = async ({
   image,
   width,
   height,
@@ -125,7 +137,7 @@ export const resizeImage = async ({
     return thumb;
   }
   // resize image to cache
-  console.log(`Resizing ${imageCachePath}`);
+  console.log(`\nResizing ${imageCachePath}`);
   await sharp(imageFile)
     .resize(width, height, { fit: 'cover' })
     .toFormat(format, { quality: 60 })
@@ -133,6 +145,20 @@ export const resizeImage = async ({
   // copy to static
   await fs.promises.copyFile(imageCachePath, imageStaticPath);
   return thumb;
+};
+
+export const resizeImage = async ({
+  image,
+  width,
+  height,
+  format = 'jpg',
+}: {
+  image: Image;
+  width: number;
+  height?: number;
+  format?: ThumbFormat;
+}): Promise<Thumb> => {
+  return addTask(() => _resizeImage({ image, width, height, format }));
 };
 
 /**
@@ -143,7 +169,7 @@ export const getPicture = async (image: Image, dimensions: { width: number; heig
   for (let { width, height } of dimensions) {
     height = height ? height : Math.round((image.height * width) / image.width);
     sources.jpeg.push(await resizeImage({ image, width, height, format: 'jpg' }));
-    sources.avif.push(await resizeImage({ image, width, height, format: 'avif' }));
+    //sources.avif.push(await resizeImage({ image, width, height, format: 'avif' }));
   }
   const img = sources.jpeg[sources.jpeg.length - 1];
   const { width: imgWidth, height: imgHeight } = dimensions[dimensions.length - 1];
