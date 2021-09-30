@@ -6,17 +6,18 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "set \"ANALYZE=true\" next build"
   },
   "dependencies": {
     "next": "^11.1.2",
-    "prettier-plugin-tailwind": "^2.2.12",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-markdown": "^7.0.1",
     "react-masonry-component": "^6.3.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^11.1.2",
     "@types/lodash": "^4.14.173",
     "@types/node": "^16.9.1",
     "@types/react": "^17.0.21",
@@ -31,6 +32,7 @@
     "nanoid": "^3.1.25",
     "postcss": "^8.3.6",
     "prettier": "^2.4.1",
+    "prettier-plugin-tailwind": "^2.2.12",
     "sharp": "^0.29.1",
     "tailwindcss": "^2.2.15",
     "typescript": "^4.4.3"

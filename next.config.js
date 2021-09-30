@@ -1,6 +1,10 @@
 const { nanoid } = require('nanoid');
 
-module.exports = {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+module.exports = withBundleAnalyzer({
   experimental: {
     staticPageGenerationTimeout: 60 * 10,
   },
@@ -9,4 +13,4 @@ module.exports = {
     process.env.BUILD_ID = id;
     return id;
   },
-};
+});
