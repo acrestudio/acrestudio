@@ -2,6 +2,7 @@ import path from 'path';
 import md5File from 'md5-file';
 import fs from 'fs';
 import sharp from 'sharp';
+import uniq from 'lodash/uniq';
 
 const thumbFormats = ['jpg', 'avif'] as const;
 export type ThumbFormat = typeof thumbFormats[number];
@@ -148,8 +149,8 @@ export const getPicture = async (image: Image, dimensions: { width: number; heig
   const { width: imgWidth, height: imgHeight } = dimensions[dimensions.length - 1];
   return {
     sources: [
-      { srcSet: sources.avif.map(({ url, width }) => `${url} ${width}w`).join(' '), type: 'image/avif' },
-      { srcSet: sources.jpeg.map(({ url, width }) => `${url} ${width}w`).join(' '), type: 'image/jpeg' },
+      { srcSet: uniq(sources.avif.map(({ url, width }) => `${url} ${width}w`)).join(', '), type: 'image/avif' },
+      { srcSet: uniq(sources.jpeg.map(({ url, width }) => `${url} ${width}w`)).join(', '), type: 'image/jpeg' },
     ],
     img: {
       src: img.url,

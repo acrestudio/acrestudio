@@ -104,13 +104,20 @@ export const getStaticProps: GetStaticProps = async context => {
   const { work: id } = context.params as { work: string };
   const work = (await getWorkFromCache(id))!;
   const index = await getIndexFromCache();
+  const widths = [686, 1120, 1680, 2240];
   // title
   const title = work.title + ' – acre · Jesse Hickey';
   // thumbs
-  const image = !work.image ? '' : (await resizeImage({ image: work.image, width: 200 })).url;
+  const image = !work.image ? '' : (await resizeImage({ image: work.image, width: 2240 })).url;
   const images: (Image & { picture: Picture })[] = [];
   for (const img of work.images) {
-    images.push({ ...img, picture: await getPicture(img, [{ width: 200 }]) });
+    images.push({
+      ...img,
+      picture: await getPicture(
+        img,
+        widths.map(width => ({ width })),
+      ),
+    });
   }
   // previous / next
   const listedWorks = index.works;

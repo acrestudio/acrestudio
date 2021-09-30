@@ -1,7 +1,7 @@
 import Layout from '../components/layout';
 import { GetStaticProps } from 'next';
 import { Tag, Work } from '../lib/content';
-import { getPicture, Image, Picture, resizeImage } from '../lib/image';
+import { Image, resizeImage, Thumb } from '../lib/image';
 import Masonry from 'react-masonry-component';
 import React, { useState } from 'react';
 import { getIndexFromCache } from '../lib/cache';
@@ -13,7 +13,7 @@ export type IndexProps = {
   description: string;
   image: string;
   tags: Tag[];
-  works: (Work & { image: Image; picture: Picture })[];
+  works: (Work & { image: Image; thumb: Thumb })[];
 };
 
 export default function IndexPage({ title, description, image, tags, works }: IndexProps) {
@@ -85,16 +85,13 @@ export default function IndexPage({ title, description, image, tags, works }: In
               <Link href={'/' + work.id}>
                 <a className="relative block group">
                   <div style={{ paddingTop: (work.image.height * 100) / work.image.width + '%' }} />
-                  <picture>
-                    {work.picture.sources.map((source, i) => (
-                      <source
-                        key={i}
-                        {...source}
-                        sizes="(min-width: 72rem): calc(24rem - 2rem), (min-width: 1024px): calc(33% - 2rem), (min-width: 640px) calc(50% - 2rem), calc(100vw - 2rem)"
-                      />
-                    ))}
-                    <img className="absolute w-full h-full inset-0" {...work.picture.img} alt="" />
-                  </picture>
+                  <img
+                    className="absolute w-full h-full inset-0"
+                    src={work.thumb.url}
+                    width={work.image.width}
+                    height={work.image.height}
+                    alt=""
+                  />
                   <div className="group-hover:opacity-100 transform border-gray-400 border-opacity-30 border text-blue-300 bg-white tracking-widest hover:bg-blue-300 hover:text-white transition-all font-bold opacity-0 absolute top-2 left-2 uppercase text-xs py-2.5 px-4 rounded-full flex items-center">
                     {work.title}
                     <Arrow className="h-4 w-4 ml-2.5" />
@@ -128,11 +125,15 @@ export default function IndexPage({ title, description, image, tags, works }: In
 
 export const getStaticProps: GetStaticProps = async () => {
   const index = await getIndexFromCache();
-  const image = !index.image ? '' : (await resizeImage({ image: index.image, width: 200 })).url;
-  const works: (Work & { image: Image; picture: Picture })[] = [];
+  const image = !index.image ? '' : (await resizeImage({ image: index.image, width: 2240 })).url;
+  const works: (Work & { image: Image; thumb: Thumb })[] = [];
   for (const work of index.works) {
     if (work.image === null) continue;
-    works.push({ ...work, image: work.image, picture: await getPicture(work.image, [{ width: 200 }]) });
+    works.push({
+      ...work,
+      image: work.image,
+      thumb: await resizeImage({ image: work.image, width: 686 }),
+    });
   }
   const props: IndexProps = { ...index, image, works };
   return { props };
