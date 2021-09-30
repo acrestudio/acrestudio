@@ -3,12 +3,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 const Nav = () => (
-  <nav className="flex justify-between items-center max-w-6xl mx-auto p-2">
+  <nav className="flex items-center justify-between mx-auto p-2 max-w-6xl">
     <Link href="/">
-      <a className="text-xl p-2">
+      <a className="p-2 text-xl">
         <span className="text-white font-bold">acre</span>
-        <span className="text-blue-300 px-1 font-bold"> · </span>
-        <span className="text-gray-400 lowercase font-medium">Jesse Hickey</span>
+        <span className="px-1 text-blue-300 font-bold"> · </span>
+        <span className="text-gray-400 font-medium lowercase">Jesse Hickey</span>
       </a>
     </Link>
     <Link href="https://www.instagram.com/acre.sketches/">

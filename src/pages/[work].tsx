@@ -23,10 +23,10 @@ type WorkProps = {
 export default function ItemPage({ title, description, image, tags, text, images, previous, next }: WorkProps) {
   return (
     <Layout {...{ title, description, image }}>
-      <article className="max-w-6xl mx-auto px-4">
+      <article className="mx-auto px-4 max-w-6xl">
         <div className="py-14 sm:py-24">
           {tags.length > 0 && (
-            <div className="text-gray-300 text-xs uppercase font-bold tracking-widest mb-10">
+            <div className="mb-10 text-gray-300 text-xs font-bold tracking-widest uppercase">
               {tags.map(tag => tag.name).join(', ')}
             </div>
           )}
@@ -35,15 +35,15 @@ export default function ItemPage({ title, description, image, tags, text, images
             className="text-white space-y-6"
             components={{
               h1: ({ node, ...props }) => (
-                <h1 className="font-bold text-5xl md:text-7xl lg:text-8xl tracking-tighter" {...props} />
+                <h1 className="text-5xl font-bold tracking-tighter md:text-7xl lg:text-8xl" {...props} />
               ),
-              h2: ({ node, ...props }) => <h1 className="font-bold text-4xl" {...props} />,
-              h3: ({ node, ...props }) => <h1 className="font-bold text-xl" {...props} />,
-              h4: ({ node, ...props }) => <h1 className="font-bold text-lg" {...props} />,
-              h5: ({ node, ...props }) => <h1 className="font-bold text-base leading-7" {...props} />,
-              h6: ({ node, ...props }) => <h1 className="font-bold text-sm leading-7" {...props} />,
-              ul: ({ node, ...props }) => <ul className="list-disc list-inside leading-7" {...props} />,
-              ol: ({ node, ...props }) => <ol className="list-decimal list-inside leading-7" {...props} />,
+              h2: ({ node, ...props }) => <h1 className="text-4xl font-bold" {...props} />,
+              h3: ({ node, ...props }) => <h1 className="text-xl font-bold" {...props} />,
+              h4: ({ node, ...props }) => <h1 className="text-lg font-bold" {...props} />,
+              h5: ({ node, ...props }) => <h1 className="text-base font-bold leading-7" {...props} />,
+              h6: ({ node, ...props }) => <h1 className="text-sm font-bold leading-7" {...props} />,
+              ul: ({ node, ...props }) => <ul className="leading-7 list-inside list-disc" {...props} />,
+              ol: ({ node, ...props }) => <ol className="leading-7 list-inside list-decimal" {...props} />,
               p: ({ node, ...props }) => <p className="leading-7" {...props} />,
               a: ({ node, ...props }) => (
                 <a
@@ -67,7 +67,7 @@ export default function ItemPage({ title, description, image, tags, text, images
                   <source key={i} {...source} sizes="(min-width: 72rem) 70rem, calc(100vw - 2rem)" />
                 ))}
                 <img
-                  className="absolute w-full h-full inset-0 object-contain object-left-top"
+                  className="absolute inset-0 w-full h-full object-contain object-left-top"
                   {...img}
                   alt=""
                   loading="lazy"
@@ -79,18 +79,18 @@ export default function ItemPage({ title, description, image, tags, text, images
       </article>
 
       {previous && next && (
-        <div className="max-w-6xl mx-auto px-2 flex justify-between py-14 sm:py-24">
+        <div className="flex justify-between mx-auto px-2 py-14 max-w-6xl sm:py-24">
           <Link href={'/' + previous.id}>
             <a className="text-left">
-              <div className="hover:text-white transition-colors text-gray-300 text-xs uppercase font-bold tracking-widest whitespace-nowrap inline-flex p-2">
-                <Arrow className="h-4 w-4 mr-2.5 transform rotate-180" /> {previous.title}
+              <div className="inline-flex p-2 text-gray-300 hover:text-white whitespace-nowrap text-xs font-bold tracking-widest uppercase transition-colors">
+                <Arrow className="mr-2.5 w-4 h-4 transform rotate-180" /> {previous.title}
               </div>
             </a>
           </Link>
           <Link href={'/' + next.id}>
             <a className="text-right">
-              <div className="hover:text-white transition-colors text-gray-300 text-xs uppercase font-bold tracking-widest whitespace-nowrap inline-flex p-2">
-                {next.title} <Arrow className="h-4 w-4 ml-2.5" />
+              <div className="inline-flex p-2 text-gray-300 hover:text-white whitespace-nowrap text-xs font-bold tracking-widest uppercase transition-colors">
+                {next.title} <Arrow className="ml-2.5 w-4 h-4" />
               </div>
             </a>
           </Link>
