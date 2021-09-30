@@ -59,7 +59,7 @@ export default function IndexPage({ title, description, image, tags, works }: In
               srcSet="/assets/images/jesse-1x.jpg 1x, /assets/images/jesse-1.5x.jpg 1.5x, /assets/images/jesse-2x.jpg 2x"
               type="image/jpeg"
             />
-            <img className="w-full" src="/assets/images/jesse-2x.jpg" alt="" width="864" height="929" />
+            <img className="w-full" src="/assets/images/jesse-2x.jpg" alt="" width="864" height="929" loading="lazy" />
           </picture>
         </div>
       </div>
@@ -91,6 +91,7 @@ export default function IndexPage({ title, description, image, tags, works }: In
                     width={work.image.width}
                     height={work.image.height}
                     alt=""
+                    loading="lazy"
                   />
                   <div className="group-hover:opacity-100 transform border-gray-400 border-opacity-30 border text-blue-300 bg-white tracking-widest hover:bg-blue-300 hover:text-white transition-all font-bold opacity-0 absolute top-2 left-2 uppercase text-xs py-2.5 px-4 rounded-full flex items-center">
                     {work.title}

@@ -66,7 +66,12 @@ export default function ItemPage({ title, description, image, tags, text, images
                 {sources.map((source, i) => (
                   <source key={i} {...source} sizes="(min-width: 72rem) 70rem, calc(100vw - 2rem)" />
                 ))}
-                <img className="absolute w-full h-full inset-0 object-contain object-left-top" {...img} alt="" />
+                <img
+                  className="absolute w-full h-full inset-0 object-contain object-left-top"
+                  {...img}
+                  alt=""
+                  loading="lazy"
+                />
               </picture>
             </div>
           ))}
