@@ -37,10 +37,13 @@ export default function IndexPage({ title, description, image, tags, works }: In
       <div className="items-center justify-between mx-auto px-2 py-8 max-w-6xl sm:py-16 md:flex md:py-32">
         <div className="px-2 py-6 md:w-7/12">
           <div className="mb-10 text-gray-300 text-white text-xs font-bold tracking-widest leading-relaxed uppercase">
-            Illustrator, Graphic Designer, Traveler
+            Illustrator, Graphic Designer, Teacher
           </div>
-          <h1 className="text-white text-5xl font-bold tracking-tighter md:text-7xl lg:text-8xl">
-            I design digital crafts for clients.
+          <h1 className="text-white tracking-tighter">
+            <div className="text-5xl font-bold md:text-6xl lg:text-7xl">Hi, I’m Jesse!</div>
+            <div className="pt-6 text-3xl font-medium md:text-4xl lg:text-5xl">
+              <span className="leading-tight">Illustrator, designer and art educator from California</span>
+            </div>
           </h1>
           <button
             className="inline-flex items-center mt-12 px-8 py-5 hover:text-blue-300 text-white text-xs font-bold tracking-widest bg-blue-300 hover:bg-white rounded-full uppercase transition-colors"
